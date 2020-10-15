@@ -159,21 +159,25 @@ class NoteLookup extends React.Component {
   initQuotes = async () => {
     if (this.props.user !== undefined && this.props.user.paidSub) {
       clearInterval(this.counter);
+      if(this.state.bigTimer>10){
+        return this.setState({ play: false,bigTimer:0 });
+      }
       this.setState({
+        bigTimer:this.state.bigTimer + 1,
         startTimer: 10,
         lastData: this.state.data[this.state.chosenExpiration]
       });
       this.counter = setInterval(() => {
         this.setState({ play: true });
         if (!document.hasFocus()) {
-          this.setState({ play: false });
+          this.setState({ play: false,bigTimer:0 });
           return clearInterval(this.counter);
         }
         if (this.state.startTimer === 0) {
           if (
             this.state.data[this.state.chosenExpiration] === this.state.lastData
           ) {
-            this.setState({ play: false });
+            this.setState({ play: false,bigTimer:0 });
             return clearInterval(this.counter);
           } else {
             return this.initQuotes();
@@ -582,7 +586,7 @@ class NoteLookup extends React.Component {
                     this.state.play
                       ? () => {
                           clearInterval(this.counter);
-                          this.setState({ play: false });
+                          this.setState({ play: false,bigTimer:0 });
                         }
                       : () => {
                           this.initQuotes();
