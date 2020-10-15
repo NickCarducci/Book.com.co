@@ -1,0 +1,144 @@
+/*
+  loadDwolla = async () => {
+    //var DIALOG_DIMENSIONS = { width: "90%", height: "90%" };
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.async = true;
+    script.src = "https://cdn.dwolla.com/1/dwolla.js";
+    /*s.src =
+      environment === 'prod'
+        ? 'https://cdn.dwolla.com/1/dwolla.min.js'
+        : 'https://cdn.dwolla.com/1/dwolla.js'
+
+    s.addEventListener('load', (): void => {
+      window.dwolla.configure(environment)
+      resolve()
+    }) *
+    script.onload = async () => {
+      const appKey = "OrFxbaqmtJzKhZVlWAM58yc4GZkXKYHFtLwpm5DG426IREJffi";
+      const appSecret = "PutLuNs2sksYmOiSdwldnUcjCPlD2UgQX7PCzhALbBTrZOmgId";
+      await fetch(`https://api-sandbox.dwolla.com/token`, {
+        method: "POST",
+        headers: {
+          "Access-Control-Allow-Origin": "jwi5k.csb.app",
+          "Content-Type": "application/x-www-form-urlencoded",
+          Authorization: `Basic ${btoa({ [appKey]: appSecret })}`
+        },
+        body: { grant_type: "client_credentials" },
+        maxAge: 3600
+      })
+        .then(async response => await response.json())
+        .then(body => {
+          console.log(body);
+        })
+
+        .catch(err => console.log(err.message));
+        await fetch("https://cr0ucj7mp0.execute-api.us-east-2.amazonaws.com/Beta",{
+          
+        })
+      window.dwolla.configure("dev");
+      console.log("ok");
+      const dwolla = window.dwolla;
+      //const appKey = "OrFxbaqmtJzKhZVlWAM58yc4GZkXKYHFtLwpm5DG426IREJffi";
+      //const appSecret = "PutLuNs2sksYmOiSdwldnUcjCPlD2UgQX7PCzhALbBTrZOmgId";
+      const client = new dwolla.Client({
+        key: appKey,
+        secret: appSecret,
+        environment: "sandbox" // optional - defaults to production
+      });
+      // create a token
+      client.auth
+        .client()
+        .then(appToken => {
+          console.log(appToken);
+          appToken.get("customers", { limit: 10 });
+        })
+        .then(res => console.log(res.body));
+    };
+    document.body.appendChild(script);
+  };*/
+
+  /*
+              var random = Math.random(10);
+              this.props.setKey(random);
+              await fetch(
+                `https://sandbox.tradier.com/v1/oauth/authorize?client_id=098f6bcd4621d373cade4e832627b4f6&scope=stream&state=${random}`,
+                {
+                  mode: "no-cors"
+                }
+              )
+                .then(async res => await res.html())
+                .then(x => {
+                  console.log(x);
+                })
+                .catch(err => {
+                  console.log(err);
+
+                  this.props.sdb.deleteKeys();
+                });
+                */
+                /*
+                import SDB from ./scopedb.js
+    let sdb = new SDB();
+    componentDidMount = () => {
+    const key = await this.state.sdb.readKey();
+    const scopecode =
+      window.location.href &&
+      window.location.href.match(/state=(.*)/) &&
+      window.location.href.match(/state=(.*)/)[1];
+    const authcode =
+      window.location.href &&
+      window.location.href.match(/code=(.*)/) &&
+      window.location.href.match(/code=(.*)&/)[1];
+    if (key && Object.keys(key).includes(scopecode)) {
+      console.log("continue to get tradier stream");
+    }
+    }
+  async setKey(key, method) {
+    let res = await this.state.sdb[method](key);
+
+    this.setState({
+      key
+    });
+    //this.props.history.replace('/plan')
+    //this.props.history.replace(`/plans/${res.id}`)
+    return res;
+  }*/
+  /*
+  
+  "./scopedb.js
+  import PouchDB from "pouchdb";
+
+export default class SDB {
+  constructor(name) {
+    this.db = new PouchDB("scopekey", { revs_limit: 1, auto_compaction: true });
+  }
+  async readKey() {
+    let allNotes = await this.db.allDocs({ include_docs: true });
+    let notes = {};
+
+    allNotes.rows.forEach(n => (notes[n.doc.key] = n.doc));
+
+    return notes;
+  }
+
+  async setKey(key) {
+    let allNotes = await this.db.allDocs({ include_docs: true });
+    if (allNotes.rows.length > 0) {
+      this.db.destroy();
+      this.db = new PouchDB("scopekey", {
+        revs_limit: 1,
+        auto_compaction: true
+      });
+    }
+    const res = await this.db.post({ key });
+
+    return res;
+  }
+
+  deleteKeys() {
+    this.db.destroy();
+    this.db = new PouchDB("scopekey", { revs_limit: 1, auto_compaction: true });
+  }
+}
+*/

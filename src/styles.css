@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  cursor: pointer;
+}
+input[type="text"] {
+  user-select: text;
+}
+.input[type="text"] {
+  user-select: text;
+}
