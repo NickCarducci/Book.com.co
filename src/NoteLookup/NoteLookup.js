@@ -787,6 +787,13 @@ class NoteLookup extends React.Component {
             >
               <div>results aren't per exchange yet</div>
               <div>some calculations may be incorrect as I develop</div>
+              suggestions: <b>squeezemetrics.com/monitor/dix</b>
+              <br />
+              <b>vixcentral.com</b> historical{" > "}multiple{" > "}add terms
+              {" > "}previous date
+              <br />
+              affiliates: <b>r/wallstreetvol</b> &bull; <b>hibit.cc</b> &bull;{" "}
+              <b>2024nj.com/carducci</b>
             </div>
             {/*this.state.chosenExchange && (
               <div onClick={() => this.setState({ chosenExchange: null })}>
