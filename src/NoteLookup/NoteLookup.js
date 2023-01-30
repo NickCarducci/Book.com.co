@@ -925,11 +925,23 @@ class NoteLookup extends React.Component {
               Trade commission free with Tradier for $50 month
             </div>*/}
             <br />
-            Your positions may be seen by others
-            <br />
-            nick@froth.app
-            <br />
-            <br />
+            <div
+              style={{
+                display: "inline-block"
+              }}
+            >
+              Your positions may be seen by others
+              <br />
+              nick@froth.app
+              <br />
+              <br />
+              change accounts after +$10k gain
+              <br />
+              non transferrable events BUT stop loss by market maker is{" "}
+              <a href="https://reddit.com/r/islamicbanks">halal</a>
+              <br />
+              constitutional debt stops with deflation
+            </div>
             <br />
           </div>
         </div>
